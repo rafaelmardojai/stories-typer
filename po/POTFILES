@@ -1,0 +1,7 @@
+data/com.rafaelmardojai.StoriesTyper.desktop.in
+data/com.rafaelmardojai.StoriesTyper.appdata.xml.in
+data/com.rafaelmardojai.StoriesTyper.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+
