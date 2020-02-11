@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="data/icons/com.rafaelmardojai.StoriesTyper.svg" alt="Telex" width="128" height="128"/><br>
+	<img src="data/icons/com.rafaelmardojai.StoriesTyper.svg" alt="Stories Typer" width="128" height="128"/><br>
  Stories Typer
 </h1>
 
