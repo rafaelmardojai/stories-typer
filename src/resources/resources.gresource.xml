@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/rafaelmardojai/StoriesTyper">
+    <file>ui/window.ui</file>
+    <file>ui/editor.ui</file>
+    <file>ui/about.ui</file>
+    <file>css/style.css</file>
+  </gresource>
+</gresources>
