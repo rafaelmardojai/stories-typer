@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Original Author: Wah <http://icnu.narod.ru/contact.html>
+ Copyright (C) 2013 Wah
+
+ Modified by Rafael Mardojai CM to use on Lopede.
+
+ This library is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA	02111-1307	USA
+
+-->
+<language id="fountain" _name="Fountain" version="2.0" _section="Others">
+  <metadata>
+		<property name="mimetypes"></property>
+		<property name="globs">*.fou;*.fountain</property>
+		<property name="parenthetical-start">(</property>
+		<property name="parenthetical-end">)</property>
+		<property name="notes-start">(</property>
+		<property name="notes-end">)</property>
+		<property name="boneyard-start">(</property>
+		<property name="boneyard-end">)</property>
+	</metadata>
+	<styles>
+		<style id="scene" _name="Scene Headings" map-to="def:error"/>
+		<style id="scene-do" _name="Scene Headings" map-to="fountain:scene"/>
+		<style id="character" _name="Character" map-to="fountain:character"/>
+		<style id="dual" _name="Dual Dialogue" map-to="fountain:dual-character"/>
+		<style id="parenthetical" _name="Parenthetical" map-to="fountain:parenthetical"/>
+		<style id="transition" _name="Transition" map-to="fountain:transition"/>
+		<style id="transition-do" _name="Transition" map-to="fountain:transition"/>
+		<style id="breaks" _name="Page Breaks" map-to="fountain:breaks"/>
+		<style id="notes" _name="Notes" map-to="fountain:notes"/>
+		<style id="boneyard" _name="Boneyard" map-to="fountain:boneyard"/>
+		<style id="sections" _name="Sections" map-to="fountain:sections"/>
+		<style id="synopses" _name="Synopses" map-to="fountain:synopses"/>
+    <style id="title" _name="Title" map-to="fountain:title"/>
+	</styles>
+	<default-regex-options case-sensitive="true"/>
+
+	<definitions>
+		<context id="scene" style-ref="scene">
+			<match>^(ИНТ|НАТ|инт|нат|INT|EXT|EST|I\/E|int|ext|est|i\/e)[\. \/].*\S\s?$</match>
+		</context>
+
+	  <context id="scene-do" end-at-line-end="true" style-ref="scene-do">
+	    <start>^\.[^\.]</start>
+    </context>
+
+    <context id="character" style-ref="character">
+			<match>^[A-ZА-ЯЁ\s][-A-ZА-ЯЁ\s\.\(\)_\’\']+$</match>
+		</context>
+
+    <context id="dual" style-ref="dual">
+			<match>^[^\.][A-ZА-ЯЁ \.\(\)]+\^$</match>
+		</context>
+
+    <context id="parenthetical" style-ref="parenthetical">
+			<start>\(</start>
+			<end>\)</end>
+		</context>
+
+    <context id="transition" style-ref="transition">
+			<match>^[A-Z\s]+ TO:$</match>
+   	</context>
+
+    <context id="transition-do" style-ref="transition">
+      <match>^(>[^\x3c]*)$</match>
+    </context>
+
+    <context id="breaks" style-ref="breaks">
+			<match>^====*\s*$</match>
+		</context>
+
+    <context id="notes" style-ref="notes">
+			<start>\[\[</start>
+			<end>\]\]</end>
+		</context>
+
+    <context id="boneyard" style-ref="boneyard">
+			<start>\/\*</start>
+			<end>\*\/</end>
+		</context>
+
+    <context id="sections" end-at-line-end="true" style-ref="sections">
+      <start>^#+</start>
+    </context>
+
+    <context id="synopses" end-at-line-end="true" style-ref="synopses">
+        <start>^=[^=]</start>
+    </context>
+
+    <context id="title" style-ref="title">
+			<match>^\s*(Title:|Credit:|Author:|Source:|Draft date:|Contact:)\s*</match>
+		</context>
+
+	  <context id="fountain">
+			<include>
+				<context ref="scene" />
+				<context ref="scene-do" />
+				<context ref="character" />
+				<context ref="dual" />
+				<context ref="parenthetical" />
+				<context ref="transition" />
+				<context ref="transition-do" />
+				<context ref="breaks" />
+				<context ref="notes" />
+				<context ref="boneyard" />
+				<context ref="sections" />
+				<context ref="synopses" />
+        <context ref="title" />
+			</include>
+		</context>
+	</definitions>
+</language>

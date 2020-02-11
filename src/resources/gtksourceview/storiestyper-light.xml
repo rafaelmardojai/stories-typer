@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ This file is part of GtkSourceView
+
+ Copyright (C) 2019 Rafael Mardojai CM
+ Author: Rafael Mardojai CM
+
+ GtkSourceView is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+
+ GtkSourceView is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public License
+ along with this library; if not, see <http://www.gnu.org/licenses/>.
+
+-->
+<style-scheme id="storiestyper-light" name="Stories Typer Light" version="1.0">
+  <author>GtkSourceView team</author>
+  <_description>Color scheme used in the Lopede screenplay editor.</_description>
+
+  <color name="red"                         value="#FF0000"/>
+  <color name="blue"                        value="#0000FF"/>
+  <color name="dark-blue"                   value="#0057AE"/>
+  <color name="dark-red"                    value="#800000"/>
+  <color name="dark-green"                  value="#008000"/>
+  <color name="grey"                        value="#808080"/>
+  <color name="yellow"                      value="#FFFF00"/>
+  <color name="white"                       value="#FFFFFF"/>
+  <color name="brown"                       value="#B07E00"/>
+  <color name="black"                       value="#000000"/>
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="black" background="white"/>
+  <style name="selection"                   foreground="white" background="#43ace8"/>
+  <style name="current-line"                background="#EEF6FF"/>
+  <style name="line-numbers"                foreground="black" background="white"/>
+  <style name="right-margin"                foreground="black" background="black"/>
+  <style name="bracket-match"               foreground="white" background="black"/>
+  <style name="bracket-mismatch"            background="red"/>
+  <style name="draw-spaces"                 foreground="#d3d7cf"/>
+  <style name="background-pattern"          background="#f3f3f3"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                background="yellow"/>
+
+  <!-- Bookmarks -->
+  <style name="bookmark"                    background="#E5E5FF"/>
+
+  <!-- Fountain -->
+  <style name="fountain:scene"              foreground="black" underline="true" bold="true"/>
+  <style name="fountain:character"          foreground="black" bold="true"/>
+  <style name="fountain:dual-character"     foreground="grey" bold="true"/>
+  <style name="fountain:parenthetical"      foreground="grey" italic="true"/>
+  <style name="fountain:transition"         foreground="blue" bold="true"/>
+  <style name="fountain:breaks"             foreground="grey"/>
+  <style name="fountain:notes"              foreground="grey"/>
+  <style name="fountain:boneyard"           foreground="grey"/>
+  <style name="fountain:sections"           foreground="grey"/>
+  <style name="fountain:synopses"           foreground="grey"/>
+  <style name="fountain:title"              foreground="black" bold="true"/>
+</style-scheme>
