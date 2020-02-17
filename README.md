@@ -30,7 +30,7 @@ CURRENT CODE IS SHITTY AND DIRTY.
     - [ ] Export to more formats (formatted text, HTML, LaTeX & RTF)
     
 # Installation
-This app is written to be Flatpak only. The easiest way to test **Stories Typer** is cloning this repo with **GNOME Builder** and run it from there.
+Clone and run with **GNOME Builder**.
 
 # Credits
 Developed by Rafael Mardojai CM.
