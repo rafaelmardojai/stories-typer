@@ -22,29 +22,21 @@ gi.require_version('Gtk', '3.0')
 
 from gi.repository import Gtk, Gdk, Gio
 
+from .actions import Actions
 from .window import AppWindow
-from .about import AboutDialog
 
-class Application(Gtk.Application):
+class Application(Gtk.Application, Actions):
     def __init__(self):
         super().__init__(application_id='com.rafaelmardojai.StoriesTyper',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)
 
+        self.window = None
+        self.settings = Gio.Settings.new("com.rafaelmardojai.StoriesTyper")
+
+        Actions.__init__(self)
+
     def do_startup(self):
         Gtk.Application.do_startup(self)
-
-        # TODO: move actions to a new class "AppActions"
-        action = Gio.SimpleAction.new("open", None)
-        action.connect("activate", self.on_open)
-        self.add_action(action)
-
-        action = Gio.SimpleAction.new("about", None)
-        action.connect("activate", self.on_about)
-        self.add_action(action)
-
-        action = Gio.SimpleAction.new("quit", None)
-        action.connect("activate", self.on_quit)
-        self.add_action(action)
 
         # Load CSS
         css_provider = Gtk.CssProvider()
@@ -53,23 +45,17 @@ class Application(Gtk.Application):
         style_context = Gtk.StyleContext()
         style_context.add_provider_for_screen(screen, css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
+        # Load Settings
+        gtk_settings = Gtk.Settings.get_default()
+
+        dark = self.settings.get_value('dark-theme')
+        gtk_settings.set_property('gtk-application-prefer-dark-theme', dark)
+
     def do_activate(self):
-        self.win = self.props.active_window
-        if not self.win:
-            self.win = AppWindow(application=self)
-        self.win.present()
-
-    def on_open(self, action, param):
-        self.win.open_document()
-
-    def on_about(self, action, param):
-        about_dialog = AboutDialog()
-        about_dialog.set_transient_for(self.win)
-        about_dialog.set_modal(True)
-        about_dialog.present()
-
-    def on_quit(self, action, param):
-        self.quit()
+        self.window = self.props.active_window
+        if not self.window:
+            self.window = AppWindow(application=self)
+        self.window.present()
 
 
 def main(version):
