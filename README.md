@@ -12,7 +12,9 @@
 
 # ADVICES
 THIS IS PROOF OF CONCEPT SOFTWARE FAR FROM USABLE.
+
 PLEASE DON'T OPEN ISSUES FOR THINGS WE ALL KNOW ARE BROKEN.
+
 CURRENT CODE IS SHITTY AND DIRTY.
 
 # Roadmap
@@ -33,6 +35,7 @@ CURRENT CODE IS SHITTY AND DIRTY.
 Clone and run with **GNOME Builder**.
 
 # Credits
-Developed by Rafael Mardojai CM.
+Developed by **Rafael Mardojai CM**.
+
 I have used/modified code from [UberWriter](https://github.com/UberWriter/uberwriter) and [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki) to learn about Gtk/Python text creation apps.
 
