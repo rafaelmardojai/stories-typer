@@ -23,7 +23,9 @@ configure_file(
 storiestyper_sources = [
   '__init__.py',
   'main.py',
+  'actions.py',
   'window.py',
+  'headerbar.py',
   'editor.py',
   'sourceview.py',
   'about.py',

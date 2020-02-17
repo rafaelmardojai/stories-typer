@@ -21,8 +21,9 @@ import logging
 import os
 import urllib
 from gettext import gettext as _
+from gi.repository import GLib, Gio, Gtk
 
-from gi.repository import Gtk
+from .headerbar import HeaderBar, FullScreenHeaderBar
 from .editor import Editor
 
 LOGGER = logging.getLogger('storiestyper')
@@ -31,11 +32,13 @@ LOGGER = logging.getLogger('storiestyper')
 class AppWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'AppWindow'
 
-    headerbar = Gtk.Template.Child()
+    app_overlay = Gtk.Template.Child()
     mainbox = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        self._load_headerbars()
 
         self.editor = Editor(window=self)
         self.mainbox.pack_start(self.editor, True, True, 0)
@@ -79,3 +82,14 @@ class AppWindow(Gtk.ApplicationWindow):
         else:
             LOGGER.warning("No File arg")
         
+    '''
+    UI PRIVATE FUNCTIONS
+    '''
+
+
+    def _load_headerbars(self):
+        self.headerbar = HeaderBar(window=self)
+        self.fs_headerbar = FullScreenHeaderBar(window=self)
+
+        self.set_titlebar(self.headerbar)
+        self.app_overlay.add_overlay(self.fs_headerbar)
