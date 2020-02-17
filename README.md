@@ -32,3 +32,7 @@ CURRENT CODE IS SHITTY AND DIRTY.
 # Installation
 This app is written to be Flatpak only. The easiest way to test **Stories Typer** is cloning this repo with **GNOME Builder** and run it from there.
 
+# Credits
+Developed by Rafael Mardojai CM.
+I have used/modified code from [UberWriter](https://github.com/UberWriter/uberwriter) and [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki) to learn about Gtk/Python text creation apps.
+
