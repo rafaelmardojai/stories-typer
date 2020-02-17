@@ -26,8 +26,8 @@ CURRENT CODE IS SHITTY AND DIRTY.
     - [ ] Implement editor search
 - **First major release**
     - [ ] Implement WYSIWYG screenplays editor
-    - [ ] Import from other screenplay formats (.fdx, .celtx, .astx, .fadein, LaTeX)
-    - [ ] Export to more visualization formats (formatted text, HTML & RTF)
+    - [ ] Import from other screenplay formats (.fdx, .celtx, .astx, .fadein)
+    - [ ] Export to more formats (formatted text, HTML, LaTeX & RTF)
     
 # Installation
 This app is written to be Flatpak only. The easiest way to test **Stories Typer** is cloning this repo with **GNOME Builder** and run it from there.
