@@ -28,12 +28,12 @@ class SourceView(GtkSource.View):
         self.buffer = self.get_buffer()
         self.buffer.set_highlight_syntax(True)
 
-        # Set language to fountain
+        # Set language
         self.lm = GtkSource.LanguageManager()
         language = self.lm.get_language('fountain')
         self.buffer.set_language(language)
 
-        # Set language to fountain
+        # Set style
         self.ssm = GtkSource.StyleSchemeManager()
         style = self.ssm.get_scheme('storiestyper-light')
         self.buffer.set_style_scheme(style)
