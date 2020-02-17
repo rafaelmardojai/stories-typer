@@ -16,18 +16,16 @@ PLEASE DON'T OPEN ISSUES FOR THINGS WE ALL KNOW ARE BROKEN.
 CURRENT CODE IS SHITTY AND DIRTY.
 
 # Roadmap
-
 - **v0.1**
     - [ ] Open, edit and save fountain text files
     - [ ] List Scenes and characters 
     - [ ] Basic editor preferences
 - **v0.2**
     - [ ] Autocompletion for screenplays syntax and characters names
-    - [ ] PDF Exporter
+    - [ ] Export to PDF
     - [ ] Implement editor search
 - **First major release**
     - [ ] Implement WYSIWYG screenplays editor
-
 ## Installation
 This app is written to be Flatpak only. The easiest way to test **Stories Typer** is cloning this repo with **GNOME Builder** and run it from there.
 
