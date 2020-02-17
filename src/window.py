@@ -38,6 +38,8 @@ class AppWindow(Gtk.ApplicationWindow):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.settings = Gio.Settings.new("com.rafaelmardojai.StoriesTyper")
+
         self._load_headerbars()
 
         self.editor = Editor(window=self)
@@ -82,6 +84,12 @@ class AppWindow(Gtk.ApplicationWindow):
         else:
             LOGGER.warning("No File arg")
         
+    def set_dark(self, state):
+        self.settings.set_value('dark-theme', GLib.Variant('b', state))
+        gtk_settings = Gtk.Settings.get_default()
+        gtk_settings.set_property('gtk-application-prefer-dark-theme', state)
+
+
     '''
     UI PRIVATE FUNCTIONS
     '''
@@ -93,3 +101,4 @@ class AppWindow(Gtk.ApplicationWindow):
 
         self.set_titlebar(self.headerbar)
         self.app_overlay.add_overlay(self.fs_headerbar)
+

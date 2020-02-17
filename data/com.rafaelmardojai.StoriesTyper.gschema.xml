@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="storiestyper">
 	<schema id="com.rafaelmardojai.StoriesTyper" path="/com/rafaelmardojai/StoriesTyper/">
+	  <key type="b" name="dark-theme">
+        <default>false</default>
+        <summary>Enable dark mode</summary>
+        <description></description>
+    </key>
 	</schema>
 </schemalist>
