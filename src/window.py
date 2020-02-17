@@ -1,6 +1,6 @@
 # window.py
 #
-# Copyright 2019 Rafael Mardojai CM
+# Copyright 2020 Rafael Mardojai CM
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -45,6 +45,12 @@ class AppWindow(Gtk.ApplicationWindow):
         self.editor = Editor(window=self)
         self.mainbox.pack_start(self.editor, True, True, 0)
 
+
+    '''
+    WINDOW ACTIONS
+    '''
+
+
     def open_document(self, _widget=None):
         fountain_filter = Gtk.FileFilter.new()
         fountain_filter.add_mime_type('text/plain')
@@ -83,7 +89,16 @@ class AppWindow(Gtk.ApplicationWindow):
             #self.did_change = False
         else:
             LOGGER.warning("No File arg")
-        
+
+    def set_fullscreen(self, state):
+        if state.get_boolean():
+            self.fullscreen()
+            self.fs_headerbar.show()
+
+        else:
+            self.unfullscreen()
+            self.fs_headerbar.hide()
+
     def set_dark(self, state):
         self.settings.set_value('dark-theme', GLib.Variant('b', state))
         gtk_settings = Gtk.Settings.get_default()
