@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="data/icons/com.rafaelmardojai.StoriesTyper.svg" alt="Stories Typer" width="128" height="128"/><br>
+	<img src="brand/logo.svg" alt="Stories Typer" width="128" height="128"/><br>
  Stories Typer
 </h1>
 
@@ -8,7 +8,7 @@
 
 <p align="center"><strong>Screenwriting software for GNOME</strong></p>
 
-![Screenshot](data/screenshots/screenshot.png)
+![Screenshot](brand/screenshot.png)
 
 # ADVICES
 THIS IS PROOF OF CONCEPT SOFTWARE FAR FROM USABLE.
