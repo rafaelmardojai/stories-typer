@@ -28,6 +28,7 @@ storiestyper_sources = [
   'headerbar.py',
   'editor.py',
   'sourceview.py',
+  'objects.py',
   'about.py',
 ]
 

@@ -17,9 +17,11 @@
 
 from fountain import fountain
 
-from gi.repository import Gtk
+from gi.repository import Gio, Gtk
 
 from .sourceview import SourceView
+
+from .objects import Scene, Character
 
 @Gtk.Template(resource_path='/com/rafaelmardojai/StoriesTyper/ui/editor.ui')
 class Editor(Gtk.Paned):
@@ -44,61 +46,58 @@ class Editor(Gtk.Paned):
         self.scrolled_src.add_with_viewport(self.src)
         self.stack.set_visible_child_name('src')
 
+        self.src.buffer.connect('changed', self.load_objects)
+
     def load_file(self, file):
         self.src.buffer.set_text(file.read())
-        self.load_scenes()
-        self.load_characters()
-        self.set_title()
+        self.set_title(file)
 
     def get_fountain(self):
         return fountain.Fountain(self.get_src_text())
 
-    def set_title(self):
+    def set_title(self, filename):
         fount = self.get_fountain()
 
         if 'title' in fount.metadata:
             print(fount.metadata['title'])
             self.window.headerbar.set_title(fount.metadata['title'][0])
 
-    def load_scenes(self):
-        scenes = self.get_scenes(self.get_fountain())
+        self.window.headerbar.set_subtitle(filename)
+
+    def load_objects(self, editor_buffer):
+        scenes, characters = self.get_objects(self.get_fountain())
+
+        smodel = Gio.ListStore.new(Scene)
+        cmodel = Gio.ListStore.new(Character)
+
+        self.scenes_list.bind_model(smodel, self.name_widget)
+        self.characters_list.bind_model(cmodel, self.name_widget)
 
         for s in scenes:
-            item = Gtk.ListBoxRow()
-            label = Gtk.Label(s)
-            item.add(label)
-            self.scenes_list.add(item)
+            scene = Scene(s)
+            smodel.append(scene)
+
+        for c in characters:
+            character = Character(c)
+            cmodel.append(character)
 
         self.scenes_list.show_all()
+        self.characters_list.show_all()
 
-    def get_scenes(self, fount):
+    def get_objects(self, fount):
         scenes = []
+        characters = []
 
         # iterate through elements
         for f in fount.elements:
             if f.element_type == 'Scene Heading' and f.element_text.upper() not in scenes:
                 scenes.append(f.element_text.upper())
-        return scenes
+            elif f.element_type == 'Character' and f.element_text.upper() not in characters:
+                characters.append(f.element_text.upper())
+        return scenes, characters
 
-    def load_characters(self):
-        characters = self.get_characters(self.get_fountain())
-
-        for c in characters:
-            item = Gtk.ListBoxRow()
-            label = Gtk.Label(c)
-            item.add(label)
-            self.characters_list.add(item)
-
-        self.characters_list.show_all()
-
-    def get_characters(self, fount):
-        chars = []
-
-        # iterate through elements
-        for f in fount.elements:
-            if f.element_type == 'Character' and f.element_text.upper() not in chars:
-                chars.append(f.element_text.upper())
-        return chars
+    def name_widget(self, scene):
+        return Gtk.Label(scene.name)
 
     def get_src_text(self):
         startIter, endIter = self.src.buffer.get_bounds()
