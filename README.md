@@ -37,5 +37,5 @@ Clone and run with **GNOME Builder**.
 # Credits
 Developed by **Rafael Mardojai CM**.
 
-I have used/modified code from [UberWriter](https://github.com/UberWriter/uberwriter) and [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki) to learn about Gtk/Python text creation apps.
+I have used/modified code from [Apostrophe](https://gitlab.gnome.org/somas/apostrophe) and [Zim](https://github.com/zim-desktop-wiki/zim-desktop-wiki) to learn about Gtk/Python text creation apps.
 
